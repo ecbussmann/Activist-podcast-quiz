@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Podcast recommendation quiz </title>
+<style>
+body {
+background-color: lightblue;
+font-family: Futura;
+}
+
+a:link {
+  color: steelblue;
+}
+
+button {
+display: block;
+margin-top: 10px;
+background-color: white;
+border: 2px solid #555555;
+color: black;
+padding: 16px 32px;
+text-decoration: none;
+margin: 4px 2px;
+cursor: pointer;
+font-family: Futura;
+font-size: 25px;
+transition-duration: 0.4s;
+
+}
+
+button:hover{
+  background-color: lightblue; /* Green */
+  color: white;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#main {
+width: 80%;
+//border: 1px gray solid;
+margin: auto;
+padding: 10px;
+background-color: white;
+border-radius: 10px;
+}
+
+#header {
+margin-top: 0;
+//border: 1px solid black;
+padding: 2px;
+height: 20px;
+font-size: 12px
+}
+
+
+.center{
+  display: block;
+  margin-left:auto;
+  margin-right: auto;
+  width: 50%
+}
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+
+</style>
+</head>
+<body>
+<div id="main">
+  <h2>Podcast Recommendations With Impact!</h2>
+
+<form  id="form1">
+
+<p>How would you spend a Saturday morning?</p>
+<label class="container"> Going to the farmer's market
+  <input type="radio" name="morning" id = "farmer" value = "e" >
+
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="morning" id = "volunteer" value = "gh" />Volunteering at a local nonprofit</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio" name="morning" id = "protest" value = "ri" />Teaching ESL classes </>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio" name="morning" id = "gym" value = "j" />Running in Amnesty International's "5k for Human Rights"</>
+  <span class="checkmark"></span>
+</label>
+
+<br>
+
+<p>Which documentary is next on your watch list?</p>
+<label class="container">
+  <input type="radio"  name="doc" id = "poverty" value = "gh" />Poverty, Inc. (The rise of charity as a multibillion dollar poverty industry)</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="doc" id = "girl" value = "ri" />Girl Rising (Nine girls from developing countries overcome great obstacles to obtain an education)</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="doc" id = "13" value = "j" />"13th" (How the Thirteenth Amendment led to mass incarceration in the United States) </>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="doc" id = "truth" value = "e" />An Inconvenient Truth (Former United States Vice President Al Gore's campaign to educate people about global warming)</>
+  <span class="checkmark"></span>
+</label>
+
+<br>
+
+<p>What was your favorite class in college?</p>
+<label class="container">
+  <input type="radio"  name="college" id = "inequality" value = "ri" />Inequality in Modern America</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="college" id = "science" value = "e" />The Science of Climate Change</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="college" id = "politics" value = "gh" />The Politics of Foreign Aid </>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="college" id = "criminal" value = "j" />The American Criminal Justice System</>
+  <span class="checkmark"></span>
+</label>
+
+<br>
+
+
+<p>If you could have lunch with a celebrity, who would you choose?</p>
+<label class="container">
+  <input type="radio"  name="celeb" id = "amal" value = "j" />Amal Clooney, international human rights lawyer</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="celeb" id = "bill" value = "e" />Bill Nye the Science Guy</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="celeb" id = "barack" value = "ri" />President Barack Obama</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="celeb" id = "theresa" value = "gh" />Mother Theresa</>
+  <span class="checkmark"></span>
+</label>
+
+<br>
+
+<p>What's your beach read?</p>
+<label class="container">
+  <input type="radio"  name="beach" id = "good" value = "gh" />Doing Good Better by William MacAskill</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="beach" id = "mercy" value = "j" />Just Mercy by Bryan Stevenson</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="beach" id = "anti" value = "ri" />How to Be an Anti-Racist by Ibram X. Kendi</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="beach" id = "plastic" value = "e" />How to Give Up Plastic by Will McCallum</>
+  <span class="checkmark"></span>
+</label>
+
+<br>
+
+<p>What's your dream job?</p>
+<label class="container">
+  <input type="radio"  name="job" id = "pres" value = "ri" />President of the United States</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="job" id = "un" value = "gh" />Ambassador to the United Nations</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="job" id = "ethical" value = "e" />Founder of an ethical fashion brand</>
+  <span class="checkmark"></span>
+</label>
+<label class="container">
+  <input type="radio"  name="job" id = "rights" value = "j" />Human rights lawyer</>
+  <span class="checkmark"></span>
+</label>
+
+<br>
+
+<button type = "submit" class = "center" value = "Subscribe now >" >Get my results!</button>
+</form>
+
+<p id="answer"></p>
+<p id="answer2"></p>
+<p id="answer3"></p>
+<p id="answer4"></p>
+<p id="answer5"></p>
+<p id="answer6"></p>
+
+
+<h1 style= "color:#4682B4"; font-size = large ; id="answer7"></h1>
+
+
+<img id = "answer8" src = "white.png" style="width:350px;height:300px" class = "center" ></img>
+
+
+
+<h1 id="answer9"></h1>
+<p id = "answer10"></p>
+
+<a id = "answer11" href="https://www.earhustlesq.com/" ></a>
+<a id = "answer12" href="http://newactivist.is/" ></a>
+<a id = "answer13" href="https://www.npr.org/podcasts/510312/codeswitch/" ></a>
+<a id = "answer14" href="https://brightly.eco/podcast/" ></a>
+<br>
+<br>
+<br>
+<br>
+
+<img id = "answer15" src = "white.png" style="width:350px;height:300px" class = "center"></img>
+
+<h1 id="answer16"></h1>
+<p id = "answer17"></p>
+
+<a id = "answer18" href="https://podcasts.apple.com/us/podcast/new-thinking-a-center-for-court-innovation-podcast/id275221709" ></a>
+<a id = "answer19" href="https://www.unhcr.org/awakeatnight/" ></a>
+<a id = "answer20" href="https://www.thebgguide.com/" ></a>
+<a id = "answer21" href="http://ecochiclife.net/" ></a>
+
+<br>
+<br>
+<br>
+<br>
+
+<img id = "answer22" ; src = "white.png" ; style="width:350px;height:300px" ; class = "center"></img>
+
+
+<h1 id="answer23"></h1>
+<p id = "answer24"></p>
+
+<a id = "answer25" href="https://serialpodcast.org/" ></a>
+<a id = "answer26" href="https://www.npr.org/podcasts/510324/rough-translation" ></a>
+<a id = "answer27" href="https://www.nytimes.com/2020/01/23/podcasts/1619-podcast.html" ></a>
+<a id = "answer28" href="https://www.sierraclub.org/sierra/the-overstory" ></a>
+
+<br>
+<br>
+
+
+</div>
+<script>
+
+	document.getElementById("form1").onsubmit=function() {
+
+	  morning = document.querySelector('input[name = "morning"]:checked').value;
+
+	  doc = document.querySelector('input[name = "doc"]:checked').value;
+
+	  college = document.querySelector('input[name = "college"]:checked').value;
+
+    celeb = document.querySelector('input[name = "celeb"]:checked').value;
+
+    beach = document.querySelector('input[name = "beach"]:checked').value;
+
+    job = document.querySelector('input[name = "job"]:checked').value;
+
+
+
+	  // initialize score variables
+	  j = 0;
+	  gh = 0;
+	  ri = 0;
+    e = 0;
+
+	  //function to calculate score for each question
+	  function eachscore(x){
+	  if(x == "j") { j = j + 1}
+	  if(x == "gh") { gh = gh + 1}
+	  if(x == "ri") { ri = ri + 1}
+    if(x == "e") { e = e + 1}
+	  }
+	  // for the above function, you could also change the 1 to a variable
+    //so you could give more points for certain questions
+
+	  //call function for each question
+	  eachscore(eval("morning"));
+	  eachscore(eval("doc"));
+	  eachscore(eval("college"));
+    eachscore(eval("celeb"));
+    eachscore(eval("beach"));
+    eachscore(eval("job"));
+
+	  all = [j, gh, ri, e];
+
+	//get the max score  in the array
+	maxscore = Math.max.apply(Math,all);
+
+  //figure out which score is the max score by identifying its index number
+	for(i=0; i<all.length; i++) {
+	if(all[i]==maxscore) {
+	highest = i;
+	}
+	}
+
+
+// object holding scores and feedback
+scores =
+//justice
+[{index:0, feedback: "The results are in!"},
+
+//general humanitarian
+{index:1, feedback: "Here's your top picks!"},
+
+//race & inequality
+{index:2, feedback: "Your recs are in!"},
+
+//environmental
+{index:3, feedback: "Your results are in!"}];
+
+
+//loop to match index to score and reply with feedback
+for(i=0;i<scores.length; i++) {
+if(highest == scores[i].index) {
+document.getElementById("answer7").innerHTML = scores[i].feedback;
+}
+
+
+//justice
+
+
+if (document.getElementById("answer7").innerHTML == "The results are in!"){
+
+
+  document.getElementById("answer8").src= "ear_hustle.jpg"
+
+
+  document.getElementById("answer9").innerHTML = "1. Ear Hustle"
+  document.getElementById("answer10").innerHTML = "Ear Hustle is a collaboration between Bay Area visual artist Nigel Poor and formerly incarcerated activist Earlonne Woods. Each episode they speak with formerly or currently incarcerated people on the state of the criminal justice system in America, and the interviewees individual experiences with incarceration. The banter between the hosts is charming, but the content of the podcast is gripping, especially for those who are interested in criminal justice reform. "
+
+  document.getElementById("answer11").innerHTML = "Listen to Ear Hustle!"
+  document.getElementById("answer12").innerHTML = ""
+  document.getElementById("answer13").innerHTML = ""
+  document.getElementById("answer14").innerHTML = ""
+
+  document.getElementById("answer15").src =  "new_thinking.png"
+  document.getElementById("answer16").innerHTML = "2. New Thinking"
+  document.getElementById("answer17").innerHTML = "New Thinking comes from the Center for Court Innovation, a non-profit think tank in New York that works to reform the criminal justice system. This podcast discusses topics like reforming prosecution, the experience of attending college after being incarcerated, and the intersection between the coronavirus and the pandemic. The hosts hear a multitude of perspectives on how to reform justice, from formerly incarcerated people themselves, attorneys, journalists, and other experts."
+  document.getElementById("answer18").innerHTML = "Listen to New Thinking!"
+  document.getElementById("answer19").innerHTML = ""
+  document.getElementById("answer20").innerHTML = ""
+  document.getElementById("answer21").innerHTML = ""
+
+
+
+  document.getElementById("answer22").src = "serial.png"
+  document.getElementById("answer23").innerHTML = "3. Serial"
+
+  document.getElementById("answer24").innerHTML = "The first season of Serial, following the murder of Hae Min Lee, shot the investigative podcasts to new heights of popularity. However, Season 3, covering criminal courts in the city of Cleveland equally as bingeable and brings attention to injustice and racism in the criminal justice system."
+
+  document.getElementById("answer25").innerHTML = "Listen to Serial!"
+
+
+document.getElementById("answer26").innerHTML = ""
+document.getElementById("answer27").innerHTML = ""
+document.getElementById("answer28").innerHTML = ""
+
+}
+
+//general humanitarian
+else if (document.getElementById("answer7").innerHTML == "Here's your top picks!"){
+
+
+  document.getElementById("answer8").src= "the_new_activist.jpg"
+
+
+  document.getElementById("answer9").innerHTML = "1. The New Activist"
+  document.getElementById("answer10").innerHTML = "The New Activist features conversations with activists and leaders who are tackling some of the world's biggest humanitarian issues from the frontlines of the war against injustice. Previous guests on the podcast included Ben Higgins and Latasha Morrison. Each episodes gets to the heart of an issues, and what makes theses activists so passionate about their work. The New Activist is produced by International Justice Mission, an international anti-slavery nonprofit. "
+
+  document.getElementById("answer11").innerHTML = ""
+  document.getElementById("answer12").innerHTML = "Listen to the New Activist!"
+  document.getElementById("answer13").innerHTML = ""
+  document.getElementById("answer14").innerHTML = ""
+
+  document.getElementById("answer15").src =  "awake_at_night.png"
+  document.getElementById("answer16").innerHTML = "2. Awake at Night"
+  document.getElementById("answer17").innerHTML = "Awake at Night is a podcast from the United Nations High Commissioner for Refugees (UNHCR) that speaks with former refugees, UN workers, and advocates on their humanitarian experiences. Each episode covers a different topic with a different person, such as human rights lawyer Shahrzad Tadjbakhsh’s experience both as a refugee from Delhi, India and has a refugee protection lawyer in Geneva, actress and UNHCR Goodwill Ambassador Cate Blanchett's account of meeting and working with refugees around the world."
+  document.getElementById("answer18").innerHTML = ""
+  document.getElementById("answer19").innerHTML = "Listen to Awake at Night!"
+  document.getElementById("answer20").innerHTML = ""
+  document.getElementById("answer21").innerHTML = ""
+
+
+
+  document.getElementById("answer22").src = "rough_translation.jpg"
+  document.getElementById("answer23").innerHTML = "3. Rough Translation"
+
+  document.getElementById("answer24").innerHTML = "Rough Translation is a podcast from NPR focusing on how other countries interact and cope with the same issues that face America. Recent episodes have dealt with racist iconography in the Netherlands, the international impact of George Floyd’s death, and Islamaphobia in the time of the Coronavirus. This podcast is extremely helpful in providing a larger perspective on topics that we may only think about on a national scale and shows how certain aspects of culture transcend geographic barriers."
+
+  document.getElementById("answer25").innerHTML = ""
+
+  document.getElementById("answer26").innerHTML = "Listen to Rough Translation!"
+  document.getElementById("answer27").innerHTML = ""
+  document.getElementById("answer28").innerHTML = ""
+
+}
+
+//race and inequality
+else if (document.getElementById("answer7").innerHTML == "Your recs are in!"){
+
+  document.getElementById("answer8").src= "code_switch.jpg"
+
+
+  document.getElementById("answer9").innerHTML = "1. Code Switch"
+  document.getElementById("answer10").innerHTML = "This podcast from NPR discusses “race head-on”, covering topics from pop culture, to politics, to social movements. Hosts Shereen Marisol Meraji and Gene Demby investigate complicated and nuanced topics from racial inequality during the coronavirus to President Trump’s social media feed. This podcast breaks down these issues in a way that is easy to understand while still sparking thought in the listener about the multitude of ways that race and racism impact our lives."
+
+  document.getElementById("answer11").innerHTML = ""
+  document.getElementById("answer12").innerHTML = ""
+  document.getElementById("answer13").innerHTML = "Listen to Code Switch!"
+  document.getElementById("answer14").innerHTML = ""
+
+  document.getElementById("answer15").src = "guide_to_politics.jpg"
+  document.getElementById("answer16").innerHTML = "2. The Brown Girl's Guide to Politics"
+  document.getElementById("answer17").innerHTML = "For fans of politics podcasts looking for a more intersectional view of the political landscape, The Brown Girls Guide to Politics is a great pick. This podcast, hosted by A'Shanti F. Golar discusses political issues with prominent activists and politicians, covering topics like discrimination towards trans people of color, criminal justice, and housing inequality, all with a focus, centering the experiences of women of color in these discussions. In a world where many political podcasts are hosted by white men, The Brown Girls Guide to Politics is an excellent resource for thinking about the impacts of intersecting identities in the political sphere."
+  document.getElementById("answer18").innerHTML = ""
+  document.getElementById("answer19").innerHTML = ""
+  document.getElementById("answer20").innerHTML = "Listen to the Brown Girl's Guide to Politics!"
+  document.getElementById("answer21").innerHTML = ""
+
+
+
+  document.getElementById("answer22").src = "1619.jpg"
+  document.getElementById("answer23").innerHTML = "3.1619"
+
+  document.getElementById("answer24").innerHTML = "1619, a podcast from the New York Times details how deeply racism is embedded into American society, beginning in 1619, when enslaved Africans first arrived on American soil. The podcast discusses the pervasive history of racism in America in often-overlooked areas, such as medicine and housing. 1619 provides much-needed historical context to racism in America today, and each episode itself likely has more Black history than most people learned throughout all of high school."
+
+  document.getElementById("answer25").innerHTML = ""
+
+  document.getElementById("answer26").innerHTML = ""
+  document.getElementById("answer27").innerHTML = "Listen to 1619!"
+  document.getElementById("answer28").innerHTML = ""
+
+
+}
+
+//environmental
+if (document.getElementById("answer7").innerHTML == "Your results are in!"){
+
+  document.getElementById("answer8").src= "good_together.png"
+
+
+  document.getElementById("answer9").innerHTML = "1. Good Together"
+  document.getElementById("answer10").innerHTML = "Good Together is a sustainability and lifestyle podcast produced by Brightly.eco. Hosted by Brightly co-founders Laura and Liza, this podcast is designed to inspire and uplift you. Good Together provides daily, actionable tips to help you live your life more sustainably.  You'll love their interviews with sustainability and zero waste experts. "
+
+  document.getElementById("answer11").innerHTML = ""
+  document.getElementById("answer12").innerHTML = ""
+  document.getElementById("answer13").innerHTML = ""
+  document.getElementById("answer14").innerHTML = "Listen to Good Together!"
+
+  document.getElementById("answer15").src =  "eco_chic.jpg"
+  document.getElementById("answer16").innerHTML = "2. Eco Chic"
+  document.getElementById("answer17").innerHTML = "Eco Chic is a woman-led podcast that discusses policy and how to incorporate sustainability into day-to-day life. This podcast discusses how environmentalism intersects with other topics from racism, feminism, fashion, and economic sustainability. Eco Chic has an excellent balance of interviews with experts, analysis of important environmental policies, and how eco-consciousness is being included in industries like fashion and skincare."
+  document.getElementById("answer18").innerHTML = ""
+  document.getElementById("answer19").innerHTML = ""
+  document.getElementById("answer20").innerHTML = ""
+  document.getElementById("answer21").innerHTML = "Listen to Eco Chic!"
+
+
+
+  document.getElementById("answer22").src =  "overstory.png"
+  document.getElementById("answer23").innerHTML = "3. The Overstory"
+
+  document.getElementById("answer24").innerHTML = "The Overstory is a podcast from the Sierra Club that discusses some of the most surprising, heartfelt, and provocative environmental stories. Recent episodes have discussed racism in birding, experiencing the outdoors during COVID-19, and how to be an effective environmental advocate."
+
+  document.getElementById("answer25").innerHTML = ""
+
+  document.getElementById("answer26").innerHTML = ""
+  document.getElementById("answer27").innerHTML = ""
+  document.getElementById("answer28").innerHTML = "Listen to The Overstory!"
+
+}
+
+}
+
+	   return false; // required to not refresh the page; just leave this here
+	   }// end the submit function
+
+
+
+</script>
+
+
+
+</body>
+</html>
